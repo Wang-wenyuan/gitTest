@@ -20,7 +20,6 @@ public class ViewPageController {
     @RequestMapping("/findAll")
     public List<Viewpager> findAll(){
         List<Viewpager> list = viewPageService.findAll();
-        System.out.println("aaa");
         return list;
     }
 }
