@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap HelloWorld</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #F1F1F1;
+        }
+
+        /**
+        导航条左边填充
+         */
+        #navbarLeft {
+            padding-left: 200px;
+        }
+
+        #navbarRight {
+            padding-right: 200px;
+        }
+
+        #body_left {
+            background-color: white;
+        }
+
+        #body_right {
+            background-color: white;
+            padding-bottom: 30px;
+        }
+
+        /*.color{
+            border: 1px solid red;
+            width: 800px;
+            height: 500px;
+            float: right;
+        }*/
+        .img_wh img {
+            width: 195px;
+            height: 150px;
+
+        }
+
+        .img_wh {
+            border-right: 1px solid #F1F1F1;
+            border-bottom: 1px solid #F1F1F1;
+        }
+
+        .bor_left {
+
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: -4px;
+            margin-right: -4px;
+        }
+
+        .tb_font {
+            background-color: #F1F1F1;
+        }
+
+        .row {
+            margin-left: -8px;
+
+        }
+
+        .top_bor {
+            border-top: 1px solid #F1F1F1;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            position: relative;
+            min-height: 1px;
+            padding-right: 29px;
+        }
+
+        .ul_color li {
+            list-style: none;
+            padding-left: 0px;
+        }
+
+        .ul_color {
+            padding-left: 0px;
+            background-color: white;
+        }
+
+        .label {
+            margin-top: 0px;
+        }
+
+        .button-style {
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .img_wh2 img {
+            width: 91px;
+            height: 70px;
+        }
+
+        .img_wh2 {
+            border-right: 1px solid #F1F1F1;
+            border-bottom: 1px solid #F1F1F1;
+        }
+
+        .img_wh1 img {
+            width: 130px;
+            height: 100px;
+        }
+
+        .img_wh1 {
+            border-right: 1px solid #F1F1F1;
+            border-bottom: 1px solid #F1F1F1;
+        }
+
+        .height-zuixin {
+            height: 100px;
+            border-bottom: 1px solid #F1F1F1;
+        }
+
+        .bor_left:hover {
+            background-color: #B0D8E7;
+        }
+
+        .img_wh3 img {
+            width: 150px;
+            height: 100px;
+        }
+
+        .img_wh3 {
+            margin-left: 10px;
+        }
+
+        .margin_left {
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .wh_leftbody {
+            background-color: white;
+        }
+        .padding_wznr{
+            padding: 20px;
+        }
+        #font_color span{
+            color: #adadad;
+        }
+        .bg_color{
+            background-color: #F7F7F7;
+            margin-left: -15px;
+            margin-right: -29px;
+            padding-left: 20px;
+        }
+
+    </style>
+    <script>
+        $(function () {
+            var winWidth;
+            if (window.innerWidth) {
+                winWidth = window.innerWidth;
+            } else if ((document.body) && (document.body.clientWidth)) {
+                winWidth = document.body.clientWidth;
+            }
+            //浏览器窗口小于600的时候移除左边的填充200px
+            if (winWidth < 600) {
+                $("#navbarLeft").removeAttr("id");
+                $().removeClass()
+            }
+        });
+
+    </script>
+</head>
+<body>
+<header id="header" class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header" id="navbarLeft">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Brand</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav" id="navigate">
+                        <li class="active"><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">前端 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="showlist.html" target="_blank">html</a></li>
+                                <li><a href="#" target="_blank">js</a></li>
+                                <li><a href="#" target="_blank">jquery</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">程序 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" target="_blank">html</a></li>
+                                <li><a href="#" target="_blank">js</a></li>
+                                <li><a href="#" target="_blank">jquery</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" target="_blank">生活</a></li>
+                        <li><a href="#" target="_blank">娱乐</a></li>
+                        <li><a href="#" target="_blank">关于</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search" >
+                        <!--另加的div为了改变右边距离-->
+                        <div id="navbarRight">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+
+                    </form>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</header>
+<!--主体-->
+<div class="container" id="tb_width">
+
+
+    <div class="row">
+        <!--左边body-->
+        <div class="col-md-9 col-xs-7 wh_leftbody">
+            <!--标题-->
+            <div class="row bg_color" id="font_color">
+                <h3>这是一个文章主题</h3>
+                <span>袁志蒙</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2018-11-07 00:00:01</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>浏览次数:</span>
+            </div>
+            <!--文章主体-->
+            <div class="row">
+                <!--文章内容-->
+                <div class="row padding_wznr" >
+                    <p><strong style="color: red;">产品说明：</strong><br/></p>
+                    <p>
+                        YzmCMS是一款轻量级开源内容管理系统，它采用OOP（面向对象）方式自主开发的框架。基于PHP+Mysql架构，并采用MVC框架式开发的一款高效开源的内容管理系统，可运行在Linux、Windows、MacOSX、Solaris等各种平台上。</p>
+                    <p>
+                        它可以让您不需要任何专业技术轻松搭建您需要的网站，操作简单，很容易上手，快捷方便的后台操作让您10分钟就会建立自己的爱站。在同类产品的比较中，YzmCMS更是凸显出了体积轻巧、功能强大、源码简洁、系统安全等特点，无论你是做企业网站、新闻网站、个人博客、门户网站、行业网站、电子商城等，它都能完全胜任，而且还提供了非常方便的二次开发体系，是一款全能型的建站系统！</p>
+                    <p><br/></p>
+                    <p><strong style="color:red">YzmCMS v5.2 新增或修正功能</strong></p>
+                    <p>1.数据库操作新增PDO驱动，并采用预处理，系统更安全！</p>
+                    <p>2.新增内容分页功能;</p>
+                    <p>3.会员中心新增微博登录;</p>
+                    <p>4.会员中心支持用户名邮箱同时登陆和找回密码;</p>
+                    <p>5.后台新增百度主动推送功能;</p>
+                    <p>6.邮件发送功能优化;</p>
+                    <p>7.手机版支持二级域名绑定;</p>
+                    <p>8.系统TAG标签优化;</p>
+                    <p>9.系统安全性增强;</p>
+                    <p>10.支付模块改进优化;</p>
+                    <p>11.系统字体图标新增和升级;</p>
+                    <p>本次更新优化内容包括但不限于以上所列举的项！</p>
+                    <p><br/></p>
+                    <p><strong>YzmCMS安装方法：请仔细阅读安装说明文件!</strong></p>
+                    <p>YzmCMS伪静态配置请参考：<a href="http://blog.yzmcms.com/html/php/155.html" target="_blank"
+                                         style="color:blue">http://blog.yzmcms.com/html/php/155.html</a></p>
+                    <p><br/></p>
+                    <p>YzmCMS下载地址：<a href="http://www.yzmcms.com/xiazai/" target="_blank" style="color:blue">官方下载</a>
+                    </p>
+                    <p><br/></p>
+                </div>
+                <!--随机新闻-->
+                <div class="row">
+                    <!--标头-->
+                    <div class="row">
+                        <div class="col-md-12 margin_left"><b>随机新闻</b></div>
+                    </div>
+                    <!--内容-->
+                    <div class="row">
+                        <div class="col-md-2 img_wh3">
+                            <img src="img/small/Konachan_02.png" class="img-rounded"/>
+                            <span>正式版发布正式版发布正式版发布正式版发布</span>
+                        </div>
+                        <div class="col-md-2 img_wh3">
+                            <img src="img/small/Konachan_02.png" class="img-rounded"/>
+                            <span>正式版发布正式版发布正式版发布正式版发布</span>
+                        </div>
+                        <div class="col-md-2 img_wh3">
+                            <img src="img/small/Konachan_02.png" class="img-rounded"/>
+                            <span>正式版发布正式版发布正式版发布正式版发布</span>
+                        </div>
+                        <div class="col-md-2 img_wh3">
+                            <img src="img/small/Konachan_02.png" class="img-rounded"/>
+                            <span>正式版发布正式版发布正式版发布正式版发布</span>
+                        </div>
+                        <div class="col-md-2 img_wh3">
+                            <img src="img/small/Konachan_02.png" class="img-rounded"/>
+                            <span>正式版发布正式版发布正式版发布正式版发布</span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!--上一篇,下一篇-->
+            <div class="row padding_wznr bg_color">
+                <div class="col-md-6">
+                    <span>上一篇:</span>PHP底层原理分析（二）：写时复制和强制分裂
+                </div>
+                <div class="col-md-6" align="right">
+                    <span>下一篇:</span>PHP PSR 代码规范基本介绍
+                </div>
+            </div>
+
+
+        </div>
+
+        <!--右边body-->
+        <div class="col-md-3 col-xs-5 ">
+            <div class="tb_font">
+                <h3><span class="label label-default">最新发布</span></h3>
+            </div>
+            <div class="row " id="body_right">
+                <button type="button" class="btn btn-default button-style">博客</button>
+                <button type="button" class="btn btn-default button-style">生活</button>
+                <button type="button" class="btn btn-default button-style">java</button>
+                <button type="button" class="btn btn-default button-style">web</button>
+                <button type="button" class="btn btn-default button-style">python</button>
+                <button type="button" class="btn btn-default button-style">服务器</button>
+                <button type="button" class="btn btn-default button-style">js</button>
+                <button type="button" class="btn btn-default button-style">c/c++</button>
+            </div>
+            <!--推荐文章-->
+            <div class="tb_font">
+                <h3><span class="label label-default">推荐文章</span></h3>
+            </div>
+            <div class="row">
+                <ul class="ul_color">
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="img_wh2 bor_left left_right">
+                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="img_wh2 bor_left left_right">
+                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="img_wh2 bor_left left_right">
+                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="img_wh2 bor_left left_right">
+                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="img_wh2 bor_left left_right">
+                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--最新评论-->
+            <div class="tb_font">
+                <h3><span class="label label-default">最新评论</span></h3>
+            </div>
+            <div class="row">
+                <ul class="ul_color">
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="height-zuixin bor_left left_right">
+
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="height-zuixin bor_left left_right">
+
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="height-zuixin bor_left left_right">
+
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="height-zuixin bor_left left_right">
+
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="height-zuixin bor_left left_right">
+
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-a">
+                            <div class="height-zuixin bor_left left_right">
+
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-inverse"></nav>
+    </div>
+</footer>
+</body>
+</html>

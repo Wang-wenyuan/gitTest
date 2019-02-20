@@ -129,6 +129,7 @@
             padding-top: 25px;
             padding-right: 20px;
         }
+        .hh { display: inline; }
     </style>
     <script>
         $(function () {
@@ -147,7 +148,7 @@
 
     </script>
 </head>
-<body ng-app="sifeizai" ng-controller="viewPageController" ng-init="findAll()">
+<body ng-app="sifeizai" ng-controller="viewPageController" ng-init="findAll();findNavigationAll();initPage();findByRecommend();countCurrentPage(1,5)">
     <header id="header" class="container-fluid">
         <div class="row">
             <nav class="navbar navbar-inverse">
@@ -168,25 +169,13 @@
                         <ul class="nav navbar-nav" id="navigate">
                             <li class="active"><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
 
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">前端 <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="showlist.html" target="_blank">html</a></li>
-                                    <li><a href="#" target="_blank">js</a></li>
-                                    <li><a href="#" target="_blank">jquery</a></li>
+                            <li class="dropdown" ng-repeat="pojo in navigationList">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{pojo.navigationTitle}} <span class="{{pojo.list.length!=0?'caret':''}}"></span></a>
+                                <ul class="dropdown-menu" ng-if="pojo.list.length!=0">
+                                    <li ng-repeat="pojoNavigation in pojo.list"><a href="#" target="_blank">{{pojoNavigation.navigationTitle}}</a></li>
+
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">程序 <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#" target="_blank">html</a></li>
-                                    <li><a href="#" target="_blank">js</a></li>
-                                    <li><a href="#" target="_blank">jquery</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" target="_blank">生活</a></li>
-                            <li><a href="#" target="_blank">娱乐</a></li>
-                            <li><a href="#" target="_blank">关于</a></li>
                         </ul>
                         <form class="navbar-form navbar-right" role="search" >
                             <!--另加的div为了改变右边距离-->
@@ -246,34 +235,18 @@
                 <div class="row top_bor" id="body_left" >
 
                     <!--特别推荐-->
-                    <div class="row" >
+                    <div class="row"  >
 
-                        <a href="particulars.html" target="_blank" class="color-a" target="_blank"><div class="col-md-6 img_wh1 bor_left">
-                            <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">aaaa
-                        </div></a>
-                        <a href="#" class="color-a" target="_blank"><div class="col-md-6 img_wh1 bor_left">
-                            <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">aaaa
+
+                        <a href="#" class="color-a" target="_blank" ng-repeat="item in recommendList"><div class="col-md-6 img_wh1 bor_left">
+                            <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
+                            <div style="float: right;width: 200px">
+                                <span><h3>{{item.title}}</h3></span>
+                                <p style="color: #0f0f0f">{{item.describes}}</p>
+                            </div>
                         </div></a>
                     </div>
 
-                    <div class="row" >
-
-                        <a href="particulars.html" target="_blank" class="color-a" target="_blank"><div class="col-md-6 img_wh1 bor_left">
-                            <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">aaaa
-                        </div></a>
-                        <a href="#" class="color-a" target="_blank"><div class="col-md-6 img_wh1 bor_left">
-                            <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">aaaa
-                        </div></a>
-                    </div>
-                    <div class="row" >
-
-                        <a href="particulars.html" target="_blank" class="color-a" target="_blank"><div class="col-md-6 img_wh1 bor_left">
-                            <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">aaaa
-                        </div></a>
-                        <a href="#" class="color-a" target="_blank"><div class="col-md-6 img_wh1 bor_left">
-                            <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">aaaa
-                        </div></a>
-                    </div>
                 </div>
 
                 <!--最新发布-->
@@ -282,59 +255,34 @@
                 </div>
                 <div class="row">
                     <ul class="ul_color">
-                        <li>
+                        <li ng-repeat="item in pageResult.pageList">
                             <a href="particulars.html" class="color-a" target="_blank"><div class="img_wh bor_left left_right" target="_blank">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="particulars.html" class="color-a" target="_blank"><div class="img_wh bor_left left_right" target="_blank">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="particulars.html" class="color-a" target="_blank"><div class="img_wh bor_left left_right" target="_blank">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="particulars.html" class="color-a" target="_blank"><div class="img_wh bor_left left_right" target="_blank">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="particulars.html" class="color-a" target="_blank"><div class="img_wh bor_left left_right" target="_blank">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
+                                <img src="{{item.img}}" alt="..." class="img-rounded">
+                                    <div style="float: right;width: 620px">
+                                        <span><h3>{{item.title}}</h3></span>
+                                        <p style="color: #0f0f0f">{{item.describes}}</p>
+                                    </div>
 
+                           </div></a>
+                        </li>
                     </ul>
                 </div>
                 <!--分页-->
                 <div class="row">
                     <div class="float_left pading_font">
-                        <span>共14页,60条</span>
+                        <span>共{{pageResult.pages}}页,{{pageResult.total}}条</span>
                     </div>
                     <div class=" padding_fenye float_left">
                         <nav>
                             <ul class="pagination">
                                 <li>
-                                    <a href="#" aria-label="Previous">
+                                    <a href="javasprict:void(0)" ng-click="currentPage(pageMap.pageNum-1,5)" aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">6</a></li>
-                                <li><a href="#">7</a></li>
-                                <li><a href="#">8</a></li>
-                                <li><a href="#">9</a></li>
-                                <li><a href="#">10</a></li>
+                                <li ng-repeat="item in pageLabel"><a href="javasprict:void(0)" ng-click="currentPage(item,5)">{{item}}</a></li>
                                 <li>
-                                    <a href="#" aria-label="Next">
+                                    <a href="javasprict:void(0)" ng-click="currentPage(pageMap.pageNum+1,5)" aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>
@@ -363,36 +311,21 @@
                 </div>
                 <!--推荐文章-->
                 <div class="tb_font">
-                    <h3><span class="label label-default">推荐文章</span></h3>
+                    <br/>
+                    <h3 class="hh"><span class="label label-default">推荐文章</span></h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" ng-click="refresh()"><span class="glyphicon glyphicon-refresh" aria-hidden="true">刷新一下啊</span></a>
+                    <div style="height: 10px"></div>
                 </div>
                 <div class="row">
-                    <ul class="ul_color">
-                        <li>
-                            <a href="#" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
 
+                    <ul class="ul_color">
+                        <li ng-repeat="item in countPageResult.pageList">
+                            <a href="javascript:void(0)" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
+                                <img src="{{item.img}}" alt="..." class="img-rounded">
+                                <div style="float: right;width: 150px">
+                                    <span><h4>{{item.title}}</h4></span>
+                                </div>
+                            </div></a>
+                        </li>
                     </ul>
                 </div>
                 <!--最新评论-->

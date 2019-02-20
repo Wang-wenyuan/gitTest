@@ -1,10 +1,29 @@
 package top.sifeizai.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Navigation implements Serializable {
     private Integer id;
-    private String ParentId;
+    private Integer ParentId;
+    private String navigationTitle;
+    private List twoList;
+
+    public List getList() {
+        return twoList;
+    }
+
+    public void setList(List twoList) {
+        this.twoList = twoList;
+    }
+
+    public String getNavigationTitle() {
+        return navigationTitle;
+    }
+
+    public void setNavigationTitle(String navigationTitle) {
+        this.navigationTitle = navigationTitle;
+    }
 
     public Integer getId() {
         return id;
@@ -14,11 +33,11 @@ public class Navigation implements Serializable {
         this.id = id;
     }
 
-    public String getParentId() {
+    public Integer getParentId() {
         return ParentId;
     }
 
-    public void setParentId(String parentId) {
+    public void setParentId(Integer parentId) {
         ParentId = parentId;
     }
 
@@ -26,7 +45,9 @@ public class Navigation implements Serializable {
     public String toString() {
         return "Navigation{" +
                 "id=" + id +
-                ", ParentId='" + ParentId + '\'' +
+                ", ParentId=" + ParentId +
+                ", navigationTitle='" + navigationTitle + '\'' +
+                ", twoList=" + twoList +
                 '}';
     }
 }

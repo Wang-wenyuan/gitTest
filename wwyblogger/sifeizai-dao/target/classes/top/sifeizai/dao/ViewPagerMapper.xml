@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.sifeizai.dao.ViewPagerMapper" >
+    <resultMap id="myMap" type="top.sifeizai.pojo.Viewpager" >
+        <id column="id" property="id"></id>
+        <result column="img" property="img"></result>
+        <result column="default" property="defaultImg"></result>
+    </resultMap>
+    <select id="findAll" resultMap="myMap">
+        select * from tb_viewpager
+    </select>
+</mapper>
