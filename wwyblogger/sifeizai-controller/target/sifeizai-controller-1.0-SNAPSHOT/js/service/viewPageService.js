@@ -15,4 +15,12 @@ app.service('viewPageService',function ($http) {
     this.findByRecommend=function () {
         return $http.get('article/findByRecommend.do');
     }
+    //推荐文章
+    this.findByCount=function (pageNum,pageSize) {
+        return $http.get('article/findByCount.do?pageNum='+pageNum+'&pageSize='+pageSize);
+    }
+    //根据id查找
+    this.findById=function (id) {
+        return $http.get('article/findById.do?id='+id);
+    }
 });

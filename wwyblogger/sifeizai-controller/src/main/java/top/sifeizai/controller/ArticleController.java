@@ -8,6 +8,7 @@ import top.sifeizai.pojo.Article;
 import top.sifeizai.service.ArticleService;
 
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/article")
@@ -45,6 +46,25 @@ public class ArticleController {
     public PageResult findByCount(int pageNum,int pageSize){
         int count = 30;
         return articleService.findByCount(count,pageNum,pageSize);
+    }
+
+    /**
+     * 根据id查找
+     * @param id
+     * @return
+     */
+    @RequestMapping("/findById")
+    public Article findById(int id){
+        return articleService.findById(id);
+    }
+
+    /**
+     * 随机查找
+     * @return
+     */
+    @RequestMapping("/findRandomById")
+    public List<Article> findRandomById(){
+       return articleService.findRandomById();
     }
 
 }

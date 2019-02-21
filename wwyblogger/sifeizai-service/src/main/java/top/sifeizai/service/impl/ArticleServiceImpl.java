@@ -54,4 +54,9 @@ public class ArticleServiceImpl implements ArticleService {
         Page<Article> page = (Page<Article>) articleMapper.findByCount(count);
         return new PageResult(page.getTotal(),page.getResult(),page.getPages());
     }
+
+    @Override
+    public List<Article> findRandomById() {
+        return articleMapper.findRandomById();
+    }
 }

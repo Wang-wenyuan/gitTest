@@ -39,4 +39,10 @@ public interface ArticleMapper {
      *
      */
     List<Article> findByCount(Integer count);
+
+    /**
+     * 随机查询5条数据
+     * @return
+     */
+    List<Article> findRandomById();
 }

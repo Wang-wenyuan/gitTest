@@ -19,4 +19,12 @@ app.service('viewPageService',function ($http) {
     this.findByCount=function (pageNum,pageSize) {
         return $http.get('article/findByCount.do?pageNum='+pageNum+'&pageSize='+pageSize);
     }
+    //根据id查找
+    this.findById=function (id) {
+        return $http.get('article/findById.do?id='+id);
+    }
+    //随机查询
+    this.findRandomById=function () {
+        return $http.get('article/findRandomById.do');
+    }
 });

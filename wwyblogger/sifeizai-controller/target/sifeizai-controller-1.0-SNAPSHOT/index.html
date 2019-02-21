@@ -148,7 +148,7 @@
 
     </script>
 </head>
-<body ng-app="sifeizai" ng-controller="viewPageController" ng-init="findAll();findNavigationAll();initPage();findByRecommend()">
+<body ng-app="sifeizai" ng-controller="viewPageController" ng-init="findAll();findNavigationAll();initPage();findByRecommend();countCurrentPage(1,5)">
     <header id="header" class="container-fluid">
         <div class="row">
             <nav class="navbar navbar-inverse">
@@ -238,7 +238,7 @@
                     <div class="row"  >
 
 
-                        <a href="#" class="color-a" target="_blank" ng-repeat="item in recommendList"><div class="col-md-6 img_wh1 bor_left">
+                        <a href="particulars.html#?id={{item.id}}" class="color-a" target="_blank" ng-repeat="item in recommendList"><div class="col-md-6 img_wh1 bor_left">
                             <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
                             <div style="float: right;width: 200px">
                                 <span><h3>{{item.title}}</h3></span>
@@ -256,7 +256,7 @@
                 <div class="row">
                     <ul class="ul_color">
                         <li ng-repeat="item in pageResult.pageList">
-                            <a href="particulars.html" class="color-a" target="_blank"><div class="img_wh bor_left left_right" target="_blank">
+                            <a href="particulars.html#?id={{item.id}}" class="color-a" target="_blank"><div class="img_wh bor_left left_right" target="_blank">
                                 <img src="{{item.img}}" alt="..." class="img-rounded">
                                     <div style="float: right;width: 620px">
                                         <span><h3>{{item.title}}</h3></span>
@@ -312,38 +312,20 @@
                 <!--推荐文章-->
                 <div class="tb_font">
                     <br/>
-                    <h3 class="hh"><span class="label label-default">推荐文章</span></h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" ng-click=""><span class="glyphicon glyphicon-refresh" aria-hidden="true">刷新一下啊</span></a>
+                    <h3 class="hh"><span class="label label-default">推荐文章</span></h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" ng-click="refresh()"><span class="glyphicon glyphicon-refresh" aria-hidden="true">刷新一下啊</span></a>
                     <div style="height: 10px"></div>
                 </div>
                 <div class="row">
 
                     <ul class="ul_color">
-                        <li>
-                            <a href="#" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
+                        <li ng-repeat="item in countPageResult.pageList">
+                            <a href="javascript:void(0)" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
+                                <img src="{{item.img}}" alt="..." class="img-rounded">
+                                <div style="float: right;width: 150px">
+                                    <span><h4>{{item.title}}</h4></span>
+                                </div>
                             </div></a>
                         </li>
-                        <li>
-                            <a href="#" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-                        <li>
-                            <a href="#" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
-                                <img src="img/small/Konachan_01.png" alt="..." class="img-rounded">
-                            </div></a>
-                        </li>
-
                     </ul>
                 </div>
                 <!--最新评论-->

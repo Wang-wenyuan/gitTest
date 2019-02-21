@@ -31,4 +31,7 @@
     <select id="findByCount" resultMap="myMap" parameterType="Integer">
         select * from tb_article where state = "1" and count > #{count}
     </select>
+    <select id="findRandomById" resultMap="myMap">
+        select * from tb_article  where id order by rand() limit 5;
+    </select>
 </mapper>

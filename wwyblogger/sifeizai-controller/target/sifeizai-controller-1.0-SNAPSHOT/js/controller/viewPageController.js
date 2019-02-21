@@ -1,4 +1,4 @@
-app.controller('viewPageController',function ($scope,viewPageService) {
+app.controller('viewPageController',function ($scope, $location,$sce,viewPageService) {
     //查找导航
     $scope.findNavigationAll=function () {
         viewPageService.findNavigationAll().success(function (response) {
@@ -71,5 +71,44 @@ app.controller('viewPageController',function ($scope,viewPageService) {
             $scope.recommendList=response;
         });
     }
+
+    //推荐文章
+    $scope.findByCount=function () {
+        viewPageService.findByCount($scope.countPageMap.pageNum,$scope.countPageMap.pageSize).success(function (response) {
+            $scope.countPageResult=response;
+        });
+    }
+
+    //进行分页
+    $scope.countPageMap={'pageNum':1,'pageSize':5};
+    $scope.countCurrentPage=function (pageNum, pageSize) {
+        $scope.countPageMap.pageNum = pageNum;
+        $scope.countPageMap.pageSize = pageSize;
+        //调用分页
+        $scope.findByCount();
+    }
+    //定义刷新
+    //实现原理,获取总页数和当前页,进行比较,每次都把当前页加一,直到最后一页时,从第一页开始
+    $scope.refresh=function () {
+        $scope.countPageMap.pageNum = $scope.countPageMap.pageNum + 1;
+        if($scope.countPageMap.pageNum>$scope.countPageResult.pages){
+            $scope.countPageMap.pageNum = 1;
+        }
+        $scope.findByCount();
+    }
+    //获取url参数
+    $scope.urlParameter=function () {
+        $scope.parameterId=$location.search().id;
+    }
+    //根据id查找
+    $scope.findById=function () {
+        $scope.urlParameter();
+        viewPageService.findById($scope.parameterId).success(function (response) {
+            $scope.particularsList=response;
+            //html字符串
+            $scope.detailDesc = $sce.trustAsHtml($scope.particularsList.contents);
+        });
+    }
+
 
 });

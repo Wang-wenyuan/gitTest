@@ -37,4 +37,10 @@ public interface ArticleService {
      */
     PageResult findByCount(Integer count,int pageNum,int pageSize);
 
+    /**
+     * 随机根据id查询
+     * @param
+     * @return
+     */
+    List<Article> findRandomById();
 }
