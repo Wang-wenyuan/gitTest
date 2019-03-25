@@ -10,7 +10,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/particulars.css" rel="stylesheet">
-
+    <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -77,7 +77,7 @@
                     <div class="row">
 
                             <div class="col-md-2 img_wh3" ng-repeat="item in randomList">
-                                <a href="particulars.html#?id={{item.id}}" class="color-a" target="_blank">
+                                <a href="particulars.html#?id={{item.id}}" class="color-a">
                                     <img src="{{item.img}}" class="img-rounded"/>
                                     <span>{{item.title}}</span>
                                 </a>
@@ -126,7 +126,7 @@
             <div class="row">
                 <ul class="ul_color">
                     <li ng-repeat="item in countPageResult.pageList">
-                        <a href="particulars.html#?id={{item.id}}" class="color-a" target="_blank"><div class="img_wh2 bor_left left_right">
+                        <a href="http://localhost:8080/particulars.html#?id={{item.id}}" class="color-a" ng-click="reload()"><div class="img_wh2 bor_left left_right">
                             <img src="{{item.img}}" alt="..." class="img-rounded">
                             <div style="float: right;width: 150px">
                                 <span><h4>{{item.title}}</h4></span>

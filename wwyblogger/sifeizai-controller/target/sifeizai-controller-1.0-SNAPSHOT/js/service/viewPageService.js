@@ -27,4 +27,8 @@ app.service('viewPageService',function ($http) {
     this.findRandomById=function () {
         return $http.get('article/findRandomById.do');
     }
+    //导航分类分页查询
+    this.findClassifyByNavigationId = function (navigationId, pageNum, pageSize) {
+        return $http.get('article/findClassifyByNavigationId.do?navigationId=' + navigationId + '&pageNum=' + pageNum + '&pageSize=' + pageSize);
+    }
 });
