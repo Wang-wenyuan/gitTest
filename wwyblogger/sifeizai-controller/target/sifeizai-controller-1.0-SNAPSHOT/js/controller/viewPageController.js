@@ -107,8 +107,14 @@ app.controller('viewPageController',function ($scope, $location,$sce,viewPageSer
             $scope.particularsList=response;
             //html字符串
             $scope.detailDesc = $sce.trustAsHtml($scope.particularsList.contents);
+            document.title=$scope.particularsList.title;
         });
     }
-
+    //随机查询
+    $scope.findRandomById=function () {
+        viewPageService.findRandomById().success(function (response) {
+            $scope.randomList=response;
+        });
+    }
 
 });

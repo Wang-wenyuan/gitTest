@@ -2,6 +2,7 @@ package top.sifeizai.service;
 
 import top.sifeizai.entity.PageResult;
 import top.sifeizai.pojo.Article;
+import top.sifeizai.pojo.ArticleClassify;
 
 import java.util.List;
 
@@ -43,4 +44,10 @@ public interface ArticleService {
      * @return
      */
     List<Article> findRandomById();
+
+    /**
+     * 根据导航分类查找
+     * @return
+     */
+    PageResult findClassifyByNavigationId(int navigationId,int pageNum,int pageSize);
 }

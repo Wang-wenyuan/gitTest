@@ -23,4 +23,8 @@ app.service('viewPageService',function ($http) {
     this.findById=function (id) {
         return $http.get('article/findById.do?id='+id);
     }
+    //随机查询
+    this.findRandomById=function () {
+        return $http.get('article/findRandomById.do');
+    }
 });

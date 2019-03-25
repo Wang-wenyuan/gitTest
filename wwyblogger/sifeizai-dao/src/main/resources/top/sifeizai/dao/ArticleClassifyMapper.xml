@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.sifeizai.dao.ArticleClassifyMapper">
+    <resultMap id="myMap" type="top.sifeizai.pojo.ArticleClassify">
+        <result column="navigation_id" property="navigationId"></result>
+        <result column="article_id" property="articleId"></result>
+        <collection property="articleList" ofType="top.sifeizai.pojo.Article" column="article_id" select="top.sifeizai.dao.ArticleMapper.findById"></collection>
+    </resultMap>
+    <select id="findByNavigationId" resultMap="myMap" parameterType="Integer">
+        select * from tb_article_classify where navigation_id = #{navigationId}
+    </select>
+</mapper>

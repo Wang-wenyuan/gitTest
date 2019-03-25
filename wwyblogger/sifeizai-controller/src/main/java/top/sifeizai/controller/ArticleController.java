@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.sifeizai.entity.PageResult;
 import top.sifeizai.pojo.Article;
+import top.sifeizai.pojo.ArticleClassify;
 import top.sifeizai.service.ArticleService;
 
 import java.util.List;
@@ -65,6 +66,15 @@ public class ArticleController {
     @RequestMapping("/findRandomById")
     public List<Article> findRandomById(){
        return articleService.findRandomById();
+    }
+
+    /**
+     * 根据导航id查找
+     * @return
+     */
+    @RequestMapping("/findClassifyByNavigationId")
+    public PageResult findClassifyByNavigationId(int navigationId,int pageNum,int pageSize ){
+        return articleService.findClassifyByNavigationId(navigationId,pageNum,pageSize);
     }
 
 }
